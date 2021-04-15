@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>期中報告幼兒園</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+
+    <!--background-->
+    <style>
+        body {
+            background-color: #000000;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #gradient {
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+
+    <!--background-->
+    <script>
+        var colors = new Array(
+            [62, 35, 255],
+            [60, 255, 60],
+            [255, 35, 98],
+            [45, 175, 230],
+            [255, 0, 255],
+            [255, 128, 0]);
+
+        var step = 0;
+        //color table indices for: 
+        // current color left
+        // next color left
+        // current color right
+        // next color right
+        var colorIndices = [0, 1, 2, 3];
+
+        //transition speed
+        var gradientSpeed = 0.002;
+
+        function updateGradient() {
+
+            if ($ === undefined) return;
+
+            var c0_0 = colors[colorIndices[0]];
+            var c0_1 = colors[colorIndices[1]];
+            var c1_0 = colors[colorIndices[2]];
+            var c1_1 = colors[colorIndices[3]];
+
+            var istep = 1 - step;
+            var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+            var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+            var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+            var color1 = "rgb(" + r1 + "," + g1 + "," + b1 + ")";
+
+            var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+            var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+            var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+            var color2 = "rgb(" + r2 + "," + g2 + "," + b2 + ")";
+
+            $('#gradient').css({
+                background: "-webkit-gradient(linear, left top, right top, from(" + color1 + "), to(" + color2 + "))"
+            }).css({
+                background: "-moz-linear-gradient(left, " + color1 + " 0%, " + color2 + " 100%)"
+            });
+
+            step += gradientSpeed;
+            if (step >= 1) {
+                step %= 1;
+                colorIndices[0] = colorIndices[1];
+                colorIndices[2] = colorIndices[3];
+
+                //pick two new target color indices
+                //do not pick the same as the current one
+                colorIndices[1] = (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
+                colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
+
+            }
+        }
+
+        setInterval(updateGradient, 10);
+    </script>
+    <div id="gradient">
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">期中報告幼兒園</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <!-- Example single danger button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            第一部分
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="index2.html">園所環境</a>
+                            <a class="dropdown-item" href="index4.html">園所公告</a>
+                            <a class="dropdown-item" href="index5.html">入學需知(入園規範)</a>
+                            <a class="dropdown-item" href="index6.html">教學特色</a>
+                        </div>
+                    </div>
+                    <!-- end Example single danger button -->
+                    <h1>&thinsp;</h1>
+                    <!-- Example single success button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            第二部分
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="1.html">最新消息</a>
+                            <a class="dropdown-item" href="2.html">最新活動</a>
+                            <a class="dropdown-item" href="3.html">校園花絮</a>
+                        </div>
+                    </div>
+                    <!-- end Example single success button -->
+                    <h1>&thinsp;</h1>
+                    <!-- Example single warning button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            第三部分
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="AboutResources.html">相關資源</a>
+                            <a class="dropdown-item" href="Prevention.html">防疫專區</a>
+                            <a class="dropdown-item" href="Visit.html">預約參觀</a>
+                        </div>
+                    </div>
+                    <!-- end Example single warning button -->
+                    <h1>&thinsp;</h1>
+                    <!-- Example single primary button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            第四部分
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="ph and vd.html">活動特輯</a>
+                            <a class="dropdown-item" href="adm.html">幼兒園招生說明</a>
+                        </div>
+                    </div>
+                    <!-- end Example single primary button -->
+                </div>
+            </div>
+        </nav>
+        <!-- end navbar -->
+
+        <!-- 預約參觀 -->
+        <div class="container text-center">
+            <h2 class="my-3 text-left animate__animated animate__bounce">預約參觀</h2>
+            <h3 class="bg-success text-center text-white py-3">預約參觀申請表</h3>
+            <div class=" border border-dark py-2 px-5">
+                <h3 class="mt-5 mb-2">團體解說導覽</h3>
+                <div class="row">
+                    <div class="col-4">
+                        <h4>參觀日期:</h4>
+                        <h4>參觀時段:</h4>
+                        <h4 class="mt-3">團體名稱:</h4>
+                        <h4>參觀人數:</h4>
+                        <h4>團體領隊姓名:</h4>
+                        <h4>聯絡電話:</h4>
+                        <h4>E-mail:</h4>
+                        <h4>導覽語別:</h4>
+                        <h4 class="mt-3">團員姓名:</h4>
+                    </div>
+                    <div class="col-8">
+                        <input class="mb-1" type="date" style="float:left">
+                        <form>
+                            <div class="form-group mt-2">
+                                <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <option>09:15</option>
+                                    <option>10:45</option>
+                                </select>
+                            </div>
+                        </form>
+                        <input class="form-control form-control-sm mt-0" type="text" placeholder="請輸入團體名稱">
+                        <input class="form-control form-control-sm mt-1" type="number" min="1" max="50"
+                            placeholder="請輸入參觀人數50人為限">
+                        <input class="form-control form-control-sm mt-1" type="text" placeholder="請輸入領隊姓名">
+                        <input class="form-control form-control-sm mt-2" type="tel" placeholder="請輸入電話號碼">
+                        <input class="form-control form-control-sm mt-2" type="email" placeholder="請輸入電子郵件">
+                        <form>
+                            <div class="form-group mt-2">
+                                <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <option>華語</option>
+                                    <option>英語</option>
+                                    <option>客語</option>
+                                    <option>台語</option>
+                                    <option>日本語</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+                                    placeholder="1.姓名;2.姓名"></textarea>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary">送出表單</button>
+            </div>
+            <!--gotop-->
+            <button onclick="topFunction()" id="myBtn" title="Gotop"><img src="gotop.png"></button>
+            <style>
+                #myBtn {
+                    display: none;
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    border-radius: 50px;
+                    background-color: white;
+                    opacity: 0.5;
+                    cursor: pointer;
+                }
+
+                #myBtn:hover {
+                    background-color: rgb(228, 20, 159);
+                    opacity: 1;
+                }
+            </style>
+            <script>
+                window.onscroll = scrollFunction; //每當畫面捲動觸發一次
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                        document.getElementById("myBtn").style.display = "block";
+                    } else {
+                        document.getElementById("myBtn").style.display = "none";
+                    }
+                }//網頁捲動超過200pixel就會跑出來 display設定成block 跑回上面就隱藏。
+
+                // 重置scrollTop這個變數的值
+                function topFunction() {
+                    document.body.scrollTop = 0; // For Safari
+                    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                }
+            </script>
+            <!--endgotop-->
+        </div>
+
+        <!-- End 預約參觀 -->
+
+
+
+
+
+
+
+        <Footer class="bg-dark py-3 mt-4">
+            <style>
+                .neon-wrap span {
+                    display: block;
+                    text-align: center;
+                }
+
+                .neon-text {
+                    font-family: 'Monoton', cursive;
+                    font-size: 50px;
+                    color: #222;
+                    text-shadow: -3px 0px 5px #222, 0px 0px 2px #222;
+                    animation: neon 2s infinite;
+                }
+
+                @keyframes neon {
+
+                    0%,
+                    30%,
+                    32%,
+                    34% {
+                        color: #222;
+                        text-shadow: -3px 0px 5px #222, 0px 0px 2px #222;
+                    }
+
+                    31%,
+                    33%,
+                    35%,
+                    100% {
+                        color: #e91e63;
+                        text-shadow: -2px 0px 3px #e91e63, 0px 0px 2px #e91e63;
+                    }
+                }
+            </style>
+            <div class="neon-wrap text-center">
+                <span class="neon-text ">Copyright &copy; 期中報告幼兒園 2021</span>
+            </div>
+        </Footer>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
